@@ -78,10 +78,7 @@ export const useFetchQestion = () => {
 
     (async () => {
       try {
-        const [data] = await getServerData(
-          `${process.env.REACT_APP_SERVER_HOSTNAME}api/questions`,
-          (responseData) => responseData
-        );
+        const data = await getServerData("/questions", res => res);
 
         if (data) {
           setGetData((prev) => ({ ...prev, isLoading: false }));
